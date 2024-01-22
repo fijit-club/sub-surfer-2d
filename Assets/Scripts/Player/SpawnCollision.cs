@@ -9,7 +9,9 @@ public class SpawnCollision : MonoBehaviour
         if (col.CompareTag("Spawn Trigger"))
         {
             roadSpawner.Spawn();
-            Destroy(col.transform.parent.gameObject, 3f);
+            if (col.transform.parent.GetComponent<ObstaclesSpawner>() != null) 
+                if (col.transform.parent.GetComponent<ObstaclesSpawner>().enabled)
+                    Destroy(col.transform.parent.gameObject, 3f);
         }
     }
 }

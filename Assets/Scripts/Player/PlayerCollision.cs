@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private Jumping jump;
-    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameOverState gameOverState;
+    [SerializeField] private CoinsHandler coinsHandler;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -15,11 +16,15 @@ public class PlayerCollision : MonoBehaviour
         {
             EndGame();
         }
+        else if (col.CompareTag("Coin"))
+        {
+            coinsHandler.GrabCoin();
+            Destroy(col.gameObject);
+        }
     }
 
     private void EndGame()
     {
-        gameObject.SetActive(false);
-        gameOverUI.SetActive(true);
+        GameStateManager.ChangeState(gameOverState);
     }
 }

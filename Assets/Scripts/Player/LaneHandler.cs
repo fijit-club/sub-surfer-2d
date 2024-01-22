@@ -67,7 +67,7 @@ public class LaneHandler : MonoBehaviour
         }
     }
 
-    private void UpdateLane()
+    public void UpdateLane()
     {
         if (CurrentLane == 0)
             cam.depth = 1;

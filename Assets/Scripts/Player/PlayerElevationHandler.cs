@@ -8,30 +8,32 @@ public class PlayerElevationHandler : MonoBehaviour
     [SerializeField] private Jumping jumping;
     [SerializeField] private Transform playerSprite;
     [SerializeField] private Transform followerInSlope;
-    [SerializeField] private float elevationHeight;
     
     private float _currentAngle;
     private Transform _lastRoad;
 
-    private float _time;
+    public void ResetState()
+    {
+        _lastRoad = null;
+    }
     
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Elevation Trigger Start") && !enteredSlope)
         {
-            RotatePlayer(1, true, col.transform.root);
+            RotatePlayer(1, true, col.transform.parent);
         }
         else if (col.CompareTag("Elevation Trigger End") && enteredSlope)
         {
-            RotatePlayer(-1, false, col.transform.root);
+            RotatePlayer(-1, false, col.transform.parent);
         }
         else if (col.CompareTag("Elevation Start Down") && !enteredSlope)
         {
-            RotatePlayer(-1, true, col.transform.root);
+            RotatePlayer(-1, true, col.transform.parent);
         }
         else if (col.CompareTag("Elevation End Down") && enteredSlope)
         {
-            RotatePlayer(1, false, col.transform.root);
+            RotatePlayer(1, false, col.transform.parent);
         }
     }
 
@@ -70,7 +72,6 @@ public class PlayerElevationHandler : MonoBehaviour
 
     private void GetElevation(Transform col)
     {
-        _time = 0f;
         var pos = transform.position;
         var y = _lastRoad.GetComponent<ElevationRoadData>().elevation;
         pos.y = y;

@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] private MainMenuState mainMenuState;
+    
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        GameStateManager.ChangeState(mainMenuState);
     }
 }

@@ -21,6 +21,7 @@ public class RoadSpawner : MonoBehaviour
     [SerializeField] private GameObject upElevation;
     [SerializeField] private GameObject downElevation;
     [SerializeField] private ElevationChanges elevation;
+    [SerializeField] private Transform spawnedRoads;
     
     private bool _lastWasElevation;
 
@@ -31,14 +32,14 @@ public class RoadSpawner : MonoBehaviour
             if (Random.Range(0, 2) == 0)
             {
                 transform.Translate(elevation.upElevationTranslationX, elevation.upElevationTranslationY, 0f);
-                var elev = Instantiate(upElevation, transform.position, upElevation.transform.rotation);
+                var elev = Instantiate(upElevation, transform.position, upElevation.transform.rotation, spawnedRoads);
                 transform.Translate(elevation.upTranslationAfterElevationX, elevation.upTranslationAfterElevationY, 0f);
                 elev.GetComponent<ElevationRoadData>().elevation = transform.position.y;
             }
             else
             {
                 transform.Translate(elevation.downElevationTranslationX, elevation.downElevationTranslationY, 0f);
-                var elev = Instantiate(downElevation, transform.position, downElevation.transform.rotation);
+                var elev = Instantiate(downElevation, transform.position, downElevation.transform.rotation, spawnedRoads);
                 transform.Translate(elevation.downTranslationAfterElevationX, elevation.downTranslationAfterElevationY, 0f);
                 elev.GetComponent<ElevationRoadData>().elevation = transform.position.y;
             }
@@ -50,7 +51,7 @@ public class RoadSpawner : MonoBehaviour
             if (!_lastWasElevation)
                 transform.Translate(6f, 0f, 0f);
             _lastWasElevation = false;
-            Instantiate(road, transform.position, Quaternion.identity);
+            Instantiate(road, transform.position, Quaternion.identity, spawnedRoads);
         }
     }
 }

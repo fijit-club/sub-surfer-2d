@@ -11,6 +11,7 @@ TagManager:
   - Spawn Trigger
   - Obstacle
   - NotJumpable
+  - Coin
   layers:
   - Default
   - TransparentFX
