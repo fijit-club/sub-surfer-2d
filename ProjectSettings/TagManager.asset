@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Elevation Trigger Start
+  - Elevation Trigger End
+  - Elevation Start Down
+  - Elevation End Down
+  - Spawn Trigger
+  - Obstacle
+  - NotJumpable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Back Lane Border
+  - Player
+  - Obstacles Bottom Lane
+  - Obstacles Middle Lane
+  - Obstacles Top Lane
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
