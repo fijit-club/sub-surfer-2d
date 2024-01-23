@@ -3298,7 +3298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2666334842957279588
 Transform:
   m_ObjectHideFlags: 0
@@ -4175,9 +4175,9 @@ MonoBehaviour:
   - {fileID: 154151758633203140}
   - {fileID: 733614250900635038}
   obstacles2:
-  - {fileID: 4881592111970630013}
   - {fileID: 154151758633203140}
   - {fileID: 8468684147076676731}
+  - {fileID: 4881592111970630013}
   x: 0.4
   coinsRows:
   - {fileID: 3721214242056513602}
